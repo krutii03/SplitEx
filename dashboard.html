@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - SplitEx</title>
+
+  <link rel="stylesheet" href="assets/css/styledashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script type="module" src="assets/js/dashboard.js" defer></script>
+
+  <script>
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="header">
+    <a href="dashboard.html" id="heading">
+      <img src="assets/img/SplitEx headerjnhuogiu.png" alt="SplitEx Logo" style="width: auto; height: 70px; margin: 0; padding: 10px;"/>
+    </a>
+    <div class="profile-menu">
+      <button id="profileBtn">☰</button>
+      <div id="dropdownMenu" class="dropdown-content">
+        <div><a href="#" id="profileOption"><img src="assets/icons/profile.png" class="icon"> Profile</a></div>
+        <div><a href="#" id="settingsOption"><img src="assets/icons/setting.png" class="icon"> Settings</a></div>
+        <div><a href="#" id="logoutOption"><img src="assets/icons/logout.png" class="icon"> Log Out</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="board">
+    <div class="sidebar" id="sidebar"> 
+      <button id="groupsOption">Groups</button>
+      <button id="expensesOption">Expenses</button>
+      <button id="settleDebtsOption">Settle Debts</button>
+      <button id="recentActivitiesOption">Recent Activities</button>
+      <button id="friendsOption">Friends</button>
+      <button id="reportsOption">Reports</button>
+    </div>
+
+    <div class="content" id="content">
+      <div id="dashboardcontent">
+        <div class="welcome-container">
+          <h1 id="welcomeMessage">Welcome to SplitEx!</h1>
+          <p>Splitting bills has never been this easy—or fun. Ready to split, save & smile? 💸</p>
+        </div>
+
+        <div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+            <h3 style="color: #82abe1; margin-bottom: 5px;">Total Groups</h3>
+            <p id="totalGroups" style="font-size: 20px; margin: 0; color:#636e72;">0</p>
+          </div>
+          <div style="flex: 1; min-width: 200px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+            <h3 style="color: #82abe1; margin-bottom: 5px;">Total Friends</h3>
+            <p id="totalFriends" style="font-size: 20px; margin: 0; color:#636e72;">0</p>
+          </div>
+          <div style="flex: 1; min-width: 200px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+            <h3 style="color: #82abe1; margin-bottom: 5px;">Total Expenses</h3>
+            <p id="totalExpenses" style="font-size: 20px; margin: 0; color:#636e72;">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

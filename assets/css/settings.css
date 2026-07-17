@@ -1,0 +1,39 @@
+.settings-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .settings-container h2 {
+    color: #1a73e8;
+    text-align: center;
+  }
+  
+  .settings-section {
+    margin-bottom: 30px;
+  }
+  
+  .settings-section h3 {
+    color: #333;
+  }
+  
+  .settings-section button {
+    width: 100%;
+    margin: 5px;
+    padding: 10px 18px;
+    background-color: #4f97f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    display: block;
+    font-size: 15px;
+  }
+  
+  .settings-section button:hover {
+    transform: scale(1.01);
+  }

@@ -1,0 +1,127 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #ceeaff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: #1a73e8;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 12px;
+    width: 360px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border: 1px solid #1a73e8;
+    box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1558c3;
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.profile-pic-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #888;
+    position: relative;
+    overflow: hidden;
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none;
+}
+.edit-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.profile-input {
+    display: none;
+}
+

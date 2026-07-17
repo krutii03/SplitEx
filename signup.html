@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sign Up - SplitEx</title>
+    <link rel="stylesheet" href="assets/css/signup.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- signup form  -->
+    <div class="signup-container">
+        
+        <form id="RegForm" class="signup-form">
+          
+            <div class="profile-photo" id="profilePhoto">
+                <img id="editProfileImagePreview" src="assets/img/profilelogo.jpg" alt="Profile Photo">
+                <input type="file" id="profileImageUpload" accept="image/*" style="display: none;">
+            </div>
+
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="date" id="birthdate" required>
+            <select id="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="submit" id="submitbtn">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="index.html">Login</a></p><br>
+        <img src="assets/img/splitEx main logo.png" alt="SplitEx Logo" class="form-logo" /> 
+    </div>
+
+<!-- signup.js -->
+    <script type="module">
+        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+        const supabaseUrl = "https://sfegijeyprgxqfkehnqa.supabase.co";
+        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNmZWdpamV5cHJneHFma2VobnFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3MjE5MDAsImV4cCI6MjA1NzI5NzkwMH0.NLxgYcZ-d6lTZRWf7DQ6pOmjUhsESjO8AEAZV0Vk4CI";
+
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+        let uploadedProfileImagePath = null;
+
+        document.getElementById("profilePhoto").addEventListener("click", () => {
+            document.getElementById("profileImageUpload").click();
+        });
+
+        document.getElementById("profileImageUpload").addEventListener("change", async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const fileExt = file.name.split('.').pop();
+            const fileName = `${crypto.randomUUID()}.${fileExt}`;
+
+            const { data, error } = await supabase.storage.from('profile-photos').upload(fileName, file);
+
+            uploadedProfileImagePath = fileName;
+
+            const { data: publicUrlData } = supabase.storage.from('profile-photos').getPublicUrl(fileName);
+            document.getElementById("editProfileImagePreview").src = publicUrlData.publicUrl;
+        });
+
+        document.getElementById('RegForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let phone = document.getElementById("phone").value;
+            let birthdate = document.getElementById("birthdate").value;
+            let gender = document.getElementById("gender").value;
+
+            const { data, error } = await supabase.auth.signUp({ email, password });
+
+            if (error) {
+                const modal = document.createElement("div");
+                modal.innerHTML = `
+                <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;">
+                <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                <h3>❗ Sign up Failed</h3>
+                <p>${error.message}</p>
+                <button id="email-warning-close" style="padding: 8px 16px; background-color: #1a73e8; color: white; border: none; border-radius: 6px;">OK</button>
+                </div>
+                </div>`;
+                document.body.appendChild(modal);
+                document.getElementById("email-warning-close").onclick = () => modal.remove();
+                return;
+            }
+
+            if (!data?.user?.id) {
+                const modal = document.createElement("div");
+                modal.innerHTML = `
+                    <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h3>❗ Sign up Failed</h3>
+                    <p>Could not Find User Data</p>
+                    <button id="email-warning-close" style="padding: 8px 16px; background-color: #1a73e8; color: white; border: none; border-radius: 6px;">OK</button>
+                    </div>
+                    </div>`;
+                    document.body.appendChild(modal);
+                    document.getElementById("email-warning-close").onclick = () => modal.remove();
+                    return;
+            }
+
+            const userId = data.user.id
+
+            const { error: dbError } = await supabase.from("users").insert([{
+                id: userId,
+                name,
+                email,
+                phone,
+                birthdate,
+                gender,
+                photo: supabase.storage.from('profile-photos').getPublicUrl(uploadedProfileImagePath).data.publicUrl
+            }]);
+
+            if (dbError) {
+    alert("Database Error: " + dbError.message);
+    return;
+} else {
+    const modal = document.createElement("div");
+    modal.innerHTML = `
+      <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+          <h3>✅ Sign up Successful!</h3>
+          <p>New User Registered</p>
+          <button id="email-warning-close" style="padding: 8px 16px; background-color: #1a73e8; color: white; border: none; border-radius: 6px;">OK</button>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+    document.getElementById("email-warning-close").onclick = () => {
+        modal.remove();
+        window.location.href = "index.html"; 
+    };
+}
+        });
+    </script>
+</body>
+</html>

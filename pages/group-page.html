@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="../assets/css/group-page.css">
+<br><br>
+
+<!-- groups header -->
+<div id="groupInfoContainer">
+  <div class="group-header">
+    <div id="groupLogoContainer">
+      <img id="groupLogo" src="../assets/img/profilelogo.jpg" alt="Group Logo" />
+      <div id="groupTitleContainer">
+        <h2 id="groupName">Group Name</h2>
+      </div>
+    </div>
+
+<!-- group menus -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <button id="expenseAddBtn" class="mini-btn">Add Expenses</button>
+      <button id="expenseListBtn" class="mini-btn">View Expenses</button>
+      <button id="memberListBtn" class="mini-btn">Members</button>
+      <button id="editGroupBtn" class="mini-btn">Edit</button>
+      <button id="closeGroupPageBtn" class="mini-btn red">✕</button>
+    </div>
+  </div>
+
+  <div id="addExpense"></div>
+
+  <div id="groupMembersList"></div>
+
+  <!-- expense list -->
+  <div id="expenseTableWrapper">
+    <h3 id="totalExpense"></h3><br>
+    <table id="expenseTable">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Amount</th>
+          <th>Paid By</th>
+          <th>Split Details</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- edit group -->
+  <div id="editGroupForm">
+    <h3>Edit Group</h3>
+    <form id="editGroupFormContent">
+      <label for="editGroupName">Group Name</label>
+      <input type="text" id="editGroupName" />
+      <label for="editGroupLogo">Group Logo (URL)</label>
+      <input type="file" id="editGroupLogo" placeholder="Enter logo URL" />
+      <button type="submit" style="width:245px;">Save Changes</button>
+      <button type="button" id="cancelEditBtn" style="width:245px;margin-left: 5px;">Cancel</button>   
+    </form>
+
+    <form id="addMemeber">
+      <br>
+      <div id="addnewMembersContainer"></div>
+      <button type="submit" style="width:245px;">Add Member</button>
+    </form>
+    <div id="leaveGroupContainer" style="margin-top: 20px; text-align: center;">
+      <button id="leaveGroupBtn" class="mini-btn red" style="background-color: #ef4444; ">Leave Group</button>
+    </div>
+  </div>
+
+<script type="module" src="../assets/js/popup.js"></script>
+  
+</div>

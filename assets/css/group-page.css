@@ -1,0 +1,281 @@
+#groupInfoContainer {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: "rubik", sans-serif;
+}
+
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f9fa;
+}
+
+#groupLogoContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#groupLogo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#groupTitleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#groupName {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+#groupMembersList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-badge {
+  background-color: #1a73e8;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+#expenseTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Rubik", sans-serif;
+}
+
+#expenseTable thead {
+  background-color: #f8f9fa;
+}
+
+#expenseTable thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+#expenseTable tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+#expenseTable tbody tr:hover {
+  background-color: #f9fbfd;
+}
+
+#expenseTable button {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#expenseTable button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+#expenseTable button:hover:not(:disabled) {
+  background-color: #0056d2;
+}
+
+.mini-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: 'Rubik', sans-serif;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mini-btn:hover {
+  background-color: #1663c7;
+}
+
+.mini-btn.red {
+  background-color: #ef4444;
+}
+
+.mini-btn.red:hover {
+  background-color: #dc2626;
+}
+
+#groupMembersList,
+#expenseTableWrapper {
+  display: none;
+}
+
+#editGroupForm {
+  display: none;
+  padding: 20px;
+  background: transparent;  
+  border-radius: 8px;
+  box-shadow: none; 
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: "rubik", sans-serif;
+}
+
+#editGroupForm h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333; 
+}
+
+#editGroupForm label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+  color: #666; 
+}
+
+#editGroupForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+#editGroupForm button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#editGroupForm button:hover {
+  background-color: #1663c7;
+}
+
+#cancelEditBtn {
+  background-color: #ef4444;
+}
+
+#cancelEditBtn:hover {
+  background-color: #dc2626;
+}
+
+#addMemeber {
+margin-top: 24px;
+padding-top: 10px;
+border-top: 1px solid #eee;
+}
+
+#addMemeber label {
+font-size: 14px;
+color: #666;
+margin-bottom: 8px;
+display: block;
+}
+
+#addnewMembersContainer {
+margin-bottom: 16px;
+}
+
+#addnewMembersContainer select {
+width: 100%;
+padding: 10px 12px;
+font-size: 14px;
+border-radius: 6px;
+border: 1px solid #ccc;
+background-color: #fff;
+color: #333;
+appearance: none;
+font-family: "Rubik", sans-serif;
+transition: border-color 0.2s ease;
+}
+
+#addnewMembersContainer select:disabled {
+background-color: #f0f0f0;
+color: #999;
+cursor: not-allowed;
+}
+
+#addnewMembersContainer select:hover:not(:disabled),
+#addnewMembersContainer select:focus {
+border-color: #1a73e8;
+outline: none;
+}
+
+#addMemeber button {
+margin: 8px auto 0 auto; 
+display: block;          
+background-color: #10b981;
+color: white;
+border: none;
+border-radius: 6px;
+font-size: 15px;
+padding: 10px 20px;
+cursor: pointer;
+transition: background-color 0.2s ease;
+font-family: "Rubik", sans-serif;
+}
+
+#addMemeber button:hover {
+background-color: #0f9f6e;
+}

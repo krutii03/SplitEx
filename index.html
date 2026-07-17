@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SplitEx</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+   
+</head>
+<body>
+
+<!-- login form -->
+    <div class="login-container">
+            <img src="assets/img/splitEx main logo.png" alt="SplitEx Logo" style="width: 300px; height: 300px;padding: 0;" />
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required><br><br>
+            <input type="password" id="password" placeholder="Password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+
+<!-- login js --> 
+<script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  
+    const supabaseUrl = "https://sfegijeyprgxqfkehnqa.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNmZWdpamV5cHJneHFma2VobnFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3MjE5MDAsImV4cCI6MjA1NzI5NzkwMH0.NLxgYcZ-d6lTZRWf7DQ6pOmjUhsESjO8AEAZV0Vk4CI";
+    const supabase = createClient(supabaseUrl, supabaseKey);
+  
+    document.getElementById("loginForm").addEventListener("submit", async function (event) {
+      event.preventDefault();
+  
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+  
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  
+  
+      if (error || !data || !data.user) {
+        const message =
+          error?.message === "Email not confirmed"
+            ? "Please confirm your email before logging in."
+            : "Please verify your email and password.";
+  
+        const modal = document.createElement("div");
+        modal.innerHTML = `
+          <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+              <h3>❗ Login Failed</h3>
+              <p>${message}</p>
+              <button id="modal-close-btn" style="padding: 8px 16px; background-color: #ef4444; color: white; border: none; border-radius: 6px;">OK</button>
+            </div>
+          </div>`;
+        document.body.appendChild(modal);
+        document.getElementById("modal-close-btn").onclick = () => modal.remove();
+        return;
+      }
+  
+      if (!data.user.confirmed_at) {
+        const modal = document.createElement("div");
+        modal.innerHTML = `
+          <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+              <h3>📧 Email Not Verified</h3>
+              <p>Please confirm your email before logging in.</p>
+              <button id="email-warning-close" style="padding: 8px 16px; background-color: #ef4444; color: white; border: none; border-radius: 6px;">OK</button>
+            </div>
+          </div>`;
+        document.body.appendChild(modal);
+        document.getElementById("email-warning-close").onclick = () => modal.remove();
+        return;
+      }
+  
+      // Check if user is an admin
+      const { data: admin, error: adminError } = await supabase
+        .from("admin")
+        .select("email")
+        .eq("email", email)
+        .single();
+  
+      if (admin && !adminError) {
+        window.location.href = "admin-dashboard.html";
+      } else {
+        window.location.href = "dashboard.html";
+      }
+    });
+  </script>
+</body>
+</html>

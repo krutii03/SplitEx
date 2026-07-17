@@ -1,0 +1,167 @@
+.groups-container {
+    padding: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.groups-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 18px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #1558c3;
+}
+
+#groupList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.group-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.2s;
+    gap: 15px;
+}
+
+.group-item:hover {
+    background: #f0f0f0;
+}
+
+.group-item img.group-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.modal-content label {
+    font-weight: 500;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.modal input[type="text"],
+.modal input[type="file"],
+.modal select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.member-select {
+    font-size: 16px;
+    padding: 12px;
+}
+
+#membersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.member-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.member-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.remove-member {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-member:hover {
+    background-color: #c0392b;
+}
+
+.modal button {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#createGroup {
+    background: #1a73e8;
+    color: white;
+}
+
+#closeModal {
+    background: #ddd;
+    color: black;
+}
+
+#addMemberBtn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.modal button:hover {
+    opacity: 0.9;
+}
+
+.content-blur {
+    filter: blur(5px);
+    pointer-events: none;
+}

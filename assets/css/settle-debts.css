@@ -1,0 +1,173 @@
+.settle-container {
+  padding: 30px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.settle-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.debts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.debt-card {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.debt-card span {
+  font-size: 16px;
+  color: #333;
+}
+
+.settle-btn {
+  padding: 10px 14px;
+  background-color: #1a73e8;
+  border: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.settle-btn:hover {
+ background-color: #155ac1;
+}
+
+.settle-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Rubik", sans-serif;
+  overflow: hidden;
+}
+
+.settle-table thead {
+  background-color: #f8f9fa;
+}
+
+.settle-table thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.settle-table tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+.settle-table tbody tr:hover {
+  background-color: #f9fbfd;
+}
+
+.settle-table button {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #63cb67;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.settle-table button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.settle-table button:hover:not(:disabled) {
+  background-color: #4CAF50;
+}  
+
+
+#settle-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#settle-popup .popup-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#settle-popup .popup-box {
+  position: relative;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 1001;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#settle-popup button {
+  margin: 10px;
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#pay-cash {
+  background: #4caf50;
+  color: white;
+}
+
+#pay-online {
+  background: #2196f3;
+  color: white;
+}
+
+#popup-close {
+  background: #999;
+  color: white;
+}
+
+.view-history-btn,
+#back {
+padding: 10px 20px;
+font-weight: bold;
+border-radius: 8px;
+border: none;
+background-color: #007bff;
+color: white;
+cursor: pointer;
+}
+
+.view-history-btn:hover,
+#back:hover,
+.view-history-btn:hover {
+background-color: #0056b3;
+}

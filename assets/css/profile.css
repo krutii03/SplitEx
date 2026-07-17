@@ -1,0 +1,125 @@
+#content {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.profile-container {
+    width: 450px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    padding: 30px;
+    font-family: "Inter", sans-serif;
+    height: fit-content;
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+#uploadPhoto {
+    display: block;
+    margin: 10px auto;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.profile-info label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 400;
+}
+
+.profile-info input,
+.profile-info select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* EDIT PROFILE PAGE STYLES */
+.edit-profile-container {
+    width: 450px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    padding: 30px;
+    font-family: "Inter", sans-serif;
+    height: fit-content;
+}
+
+.edit-profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.edit-profile-form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.edit-profile-form input,
+.edit-profile-form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+button {
+    background: #0056b3;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+button:hover {
+    background: #004099;
+    transform: translateY(-2px);
+}
+

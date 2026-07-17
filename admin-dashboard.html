@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - SplitEx</title>
+
+  <link rel="stylesheet" href="assets/css/styledashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <script>
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+  </script>
+</head>
+
+<!-- header -->
+<body class="admin-dashboard">
+  <div class="header">
+    <a href="admin-dashboard.html" id="heading">
+      <img src="assets/img/SplitEx headerjnhuogiu.png" alt="SplitEx Logo" style="width: auto; height: 70px; margin: 0; padding: 10px; padding-right: 0;"/><h3 style="font-family: 'Rubik';">Admin</h3>
+    </a>
+    <div class="profile-menu" >
+      <button id="profileBtn">X</button>
+    </div>
+  </div>
+
+<!-- sidebar -->
+  <div class="board">
+    <div class="sidebar" id="sidebar">
+      <button id="adminProfile" class="sidebar-button">Admin Profile</button>
+      <button id="adminUserManagement" class="sidebar-button">Users</button>
+      <button id="adminGroupManagement" class="sidebar-button">Groups</button>
+      <button id="adminExpenseManagement" class="sidebar-button">Expenses</button>
+      <button id="adminActivityLog" class="sidebar-button">Activity Log</button>
+      <button id="adminStatsDashboard" class="sidebar-button">Statistics</button>
+    </div>
+
+    <!-- content -->
+    <div class="content" id="adminContent">
+      <h1 id="welcomeMessage">Welcome to SplitEx!</h1>
+      <p>Manage users, groups, expenses, and more.</p>
+    </div>
+  </div>
+  <script type="module" src="assets/js/admin-dashboard.js" defer></script>
+</body>
+</html>
+

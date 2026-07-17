@@ -1,0 +1,57 @@
+.reports-container {
+  padding: 5px;
+  font-family: 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+}
+
+.reports-container h2 {
+  font-size: 16px; 
+  margin-bottom: 10px;
+}
+
+.expense-summary {
+  display: flex;
+  gap: 10px; 
+  justify-content: space-between;
+  margin-bottom: 20px; 
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 8px; 
+  padding: 10px; 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.summary-card h3 {
+  font-size: 10px; 
+  margin-bottom: 5px; 
+  color: #666;
+}
+
+.summary-card p {
+  font-size: 14px; 
+  font-weight: bold;
+  color: #333;
+}
+
+.chart-section {
+  background: #ffffff;
+  padding: 10px; 
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chart-section h3 {
+  font-size: 14px; 
+  margin-bottom: 5px;
+  color: #666;
+}
+
+#monthlyChart {
+  padding: 20px;
+  width: 1130px !important; 
+  height: 500px !important; 
+}

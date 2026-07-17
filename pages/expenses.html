@@ -1,0 +1,38 @@
+<div class="expenses-container">
+  <h3 class="section-heading">Add New Expense</h3>
+  
+  <form id="expenseForm" class="expense-form">
+
+    <label for="categorySelect">Category</label>
+    <select id="categorySelect" required>
+      <option value="">Select Category</option>
+    </select>
+
+    <label for="descriptionInput">Description</label>
+    <input type="text" id="descriptionInput" placeholder="Expense Description" required/>
+
+    <label for="groupSelect">Group</label>
+    <select id="groupSelect" required></select>
+
+    <label for="paidBySelect">Paid By</label>
+    <select id="paidBySelect" required></select>
+
+    <label for="amountInput">Amount</label>
+    <input type="text" id="amountInput" placeholder="Total Amount" required />
+
+    <label for="splitTypeSelect">Split Type</label>
+    <select id="splitTypeSelect" required>
+      <option value="">Select a Split Type</option>
+      <option value="equal">Equal</option>
+      <option value="by amount">By Amount</option>
+      <option value="percentage">Percentage</option>
+    </select>
+
+    <div id="splitDetails" class="split-details" style="display: none;"></div>
+
+    <div id="expenseStatus" class="expense-status"></div>
+
+    <button type="submit" class="submit-btn">Add Expense</button><br>
+
+  </form>
+</div>
